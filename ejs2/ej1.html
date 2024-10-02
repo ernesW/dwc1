@@ -1,0 +1,95 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ejercicio DOM básico</title>
+  </head>
+
+  <body>
+    <p>
+      Prueba A
+
+      <a href="http://prueba">enlace A</a>
+
+      Prueba B
+
+      <a href="http://prueba2">enlace B</a>
+
+      Prueba C
+    </p>
+
+    <p>
+      Prueba D
+
+      <a href="http://prueba">enlace C</a>
+
+      Prueba E
+
+      <a href="http://prueba3">enlace D</a>
+
+      Prueba F
+    </p>
+
+    <p>
+      Prueba G
+
+      <a href="http://prueba">enlace G</a>
+
+      Prueba H
+
+      <a href="http://prueba4">enlace H</a>
+
+      Prueba I
+
+      <a href="http://prueba5">enlace I</a>
+
+      Prueba J.
+    </p>
+
+    <script>
+
+        // a)
+
+        //creo una variable enlaces para almacenar el los parrafos 
+        var enlaces = document.getElementsByTagName('a');
+        //los muestro por la consola con el .length ya que nos muestra la cantidad
+        console.log("Número de enlaces en la página: " + enlaces.length);
+
+        // b)
+
+        // en enlaces la posicion enlaces.length - 2 nos lleva al penultimo 
+        // y .href nos devuelve el link
+        console.log("deireccion del penultimo enlace: " + enlaces[enlaces.length - 2].href)
+
+        // c)
+
+        // pongo un contador a 0 
+        var contadorPrueba = 0;
+
+        // recorro el numero de enlaces con el for 
+        for (var i = 0; i < enlaces.length; i++) {
+                
+            //si el numero del enlace que esta en [] su link coincide con http://prueba/
+            if (enlaces[i].href === "http://prueba/") {
+
+                // sumamos el contador
+                contadorPrueba++;
+            }
+        }
+        console.log("Número de enlaces que enlazan exactamente a http://prueba: " + contadorPrueba);
+
+        // d)
+
+        var parrafos = document.getElementsByTagName('p');
+
+        // si parrafo es = 3 
+        if(parrafos.length >= 3){
+
+            // creamos una variable para almacenar el numero de enlaces 
+            var enlacesTercerParrafo = parrafos[2].getElementsByTagName('a');
+            console.log("los enlaces del tercer parrafo son: " + enlacesTercerParrafo.length);
+        }
+
+    </script>
+
+  </body>
+</html>
