@@ -1,0 +1,54 @@
+<html>
+
+<head>
+
+    <title>Ejericio 5</title>
+
+    <meta charset="UTF-8">
+    
+
+    <script type="text/javascript">
+
+        function enviar() {
+
+            respuestaCorrecta = "Pedro Sanchez";
+
+            respuesta = document.getElementById("respuesta").value;
+
+
+            /* Si la respuesta es incorrecta alert "No es correcto" 
+            y value del input "Prueba otra vez" */
+
+            if(respuesta != respuestaCorrecta){
+
+                document.getElementById("respuesta").value = "Prueba otra vez";
+                alert("No es correcto");
+            
+
+            }else{
+                alert("Es correcto");
+            }
+
+        }
+
+    </script>
+
+
+
+</head>
+
+<body>
+
+    <h4> Pregunta </h4>
+
+    <p> ¿Quien es el presidente de españa? </p>
+
+    <input type="text" id="respuesta" value="responda aquí">
+
+    <button type="button" onclick="enviar()">enviar</button>
+
+    <p><div id="resultado"></p>
+
+</body>
+
+</html>

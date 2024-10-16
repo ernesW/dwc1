@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Ejercicio2</title>
+
+    <style type="text/css">
+      .oculto {
+        display: none;
+      }
+
+      .visible {
+        display: inline;
+      }
+    </style>
+
+    <script type="text/javascript">
+      function muestra() {
+        
+        // Seleciona el texto con el id adicional 
+        textoAdicional = document.getElementById('adicional');
+
+        //cambiamos el classname a visible en vez de oculto
+        textoAdicional.className = "visible";
+
+        // seleccionamos el enlace
+        enlace = document.getElementById('enlace');
+        // lo ocultamos con style.display = "none"
+        enlace.style.display = "none";
+
+      }
+    </script>
+  </head>
+
+  <body>
+    <p id="texto">
+      Texto ejercicio 2<span id="adicional" class="oculto">
+        segunda parte
+      </span>
+    </p>
+
+    <a id="enlace" href="#" onclick="muestra()">Seguir leyendo</a>
+  </body>
+</html>

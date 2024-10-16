@@ -1,0 +1,75 @@
+<html>
+  <head> 
+    
+
+  </head>
+
+  <body>
+    <div id="titulo">Prueba de eventos</div>
+
+    <div id="divimg1">
+      <img id="imagen" src="/ejs4/imgs/donpollo1.jpg" />
+    </div>
+
+    <div id="divimg2">
+      <img id="imagen2" src="/ejs4/imgs/donpollo2.jpg" />
+    </div>
+
+    <script type="text/javascript">
+
+        function cambiarColor(){
+            var titulo = document.getElementById("titulo");
+            titulo.style.backgroundColor = "red";
+        }
+    
+        titulo.addEventListener("click", cambiarColor);
+
+
+        function generarColorAleatorio() {
+        const letras = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letras[Math.floor(Math.random() * 16)];
+        }
+        return color;
+        }
+
+        function cambiarColorBG(){
+
+            document.body.style.backgroundColor = generarColorAleatorio();
+        }
+
+        document.addEventListener('mousemove', cambiarColorBG);
+    
+        function mostrarURL(){
+
+            imagen1 = document.getElementById("imagen");
+
+            url1 = imagen1.src;
+
+            imagen2 = document.getElementById("imagen2");
+            
+            url2 = imagen2.src;
+
+            divimg1 = document.getElementById("divimg1");
+            divimg2 = document.getElementById("divimg2");
+
+            divimg1.textContent = "La URL de la imagen es: " + url;
+
+            divimg2.textContent = "La URL de la imagen es: " + url;
+
+        }
+        
+
+        imagen1.addEventListener("mouseover", mostrarURL);
+
+
+
+        // NO me sale este ejercicio
+
+
+    </script>
+
+
+  </body>
+</html>
