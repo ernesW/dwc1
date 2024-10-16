@@ -4,13 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 2</title>
-    <script src="/ejs4/script.js" defer></script> 
+    
 </head>
 <body>
 
     <h1>Presiona la imagen</h1>
 
 <img src="/ejs4/imgs/donpollo1.jpg" alt="" id="imagen">
+
+
+
+<script>
+
+    let nodoImagen = document.getElementsByTagName("img")[0];
+
+    nodoImagen.addEventListener("mousedown", function () {
+        this.src = "/ejs4/imgs/donpollo2.jpg"
+    });
+
+    nodoImagen.addEventListener("mouseup", function () {
+        this.src = "/ejs4/imgs/donpollo1.jpg"
+    });
+    
+
+</script> 
 
 </body>
 </html>

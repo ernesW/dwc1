@@ -1,75 +1,64 @@
 <html>
-  <head> 
-    
 
-  </head>
+    <head> </head>
 
-  <body>
-    <div id="titulo">Prueba de eventos</div>
+    <body>
 
-    <div id="divimg1">
-      <img id="imagen" src="/ejs4/imgs/donpollo1.jpg" />
-    </div>
+        <div id="titulo">Prueba de eventos</div>
 
-    <div id="divimg2">
-      <img id="imagen2" src="/ejs4/imgs/donpollo2.jpg" />
-    </div>
+        <div>
+
+            <img src="/ejs4/imgs/donpollo1.jpg" />
+
+        </div>
+
+        <div>
+
+            <img src="/ejs4/imgs/donpollo2.jpg"/>
+
+        </div>
+
+
+
 
     <script type="text/javascript">
 
-        function cambiarColor(){
-            var titulo = document.getElementById("titulo");
-            titulo.style.backgroundColor = "red";
-        }
-    
-        titulo.addEventListener("click", cambiarColor);
-
-
-        function generarColorAleatorio() {
-        const letras = '0123456789ABCDEF';
-        let color = '#';
-        for (let i = 0; i < 6; i++) {
-            color += letras[Math.floor(Math.random() * 16)];
-        }
-        return color;
-        }
-
-        function cambiarColorBG(){
-
-            document.body.style.backgroundColor = generarColorAleatorio();
-        }
-
-        document.addEventListener('mousemove', cambiarColorBG);
-    
-        function mostrarURL(){
-
-            imagen1 = document.getElementById("imagen");
-
-            url1 = imagen1.src;
-
-            imagen2 = document.getElementById("imagen2");
-            
-            url2 = imagen2.src;
-
-            divimg1 = document.getElementById("divimg1");
-            divimg2 = document.getElementById("divimg2");
-
-            divimg1.textContent = "La URL de la imagen es: " + url;
-
-            divimg2.textContent = "La URL de la imagen es: " + url;
-
-        }
         
+			function cambiarFondo(nodo, color) {
+				nodo.style.backgroundColor = color;
+			}
+			
+			//Al hacer click sobre el div tÃ­tulo, el fondo del div debe cambiar de color.
+			document.getElementById("titulo").addEventListener("click", function () {
+				cambiarFondo(this, "red");
+			});
+			
+			//Cuando se mueve el ratÃ³n sobre cualquier parte de la pÃ¡gina, el color de fondo de la pÃ¡gina cambia de color
+			document.body.addEventListener("mousemove", function () {
+				cambiarFondo(this, "blue");
+			});	
+			document.body.addEventListener("mouseout", function () {
+				cambiarFondo(this, "");
+			});
+			
+			//Cuando se pasa el ratÃ³n sobre una imagen se muestra su URL en el DIV.
+			let nodosImagen = document.getElementsByTagName("img");
+			for(var i = 0; i < nodosImagen.length; i++) {
+				nodosImagen[i].addEventListener("mouseover", function () {
+					document.getElementById("titulo").innerHTML = this.src;
+				});
+				nodosImagen[i].addEventListener("mouseout", function () {
+					document.getElementById("titulo").innerHTML = "Prueba de eventos";
+				});
+				
+				//Cuando se pulsa sobre una imagen se muestran las coordenadas del puntero del ratÃ³n respecto de la ventana del navegador con un alert.
+				nodosImagen[i].addEventListener("click", function () {
+					alert("Coordenada X: " + event.clientX + "\nCoordenada Y: " + event.clientY);
+				});
+			}
 
-        imagen1.addEventListener("mouseover", mostrarURL);
-
-
-
-        // NO me sale este ejercicio
-
+		
 
     </script>
-
-
   </body>
 </html>
